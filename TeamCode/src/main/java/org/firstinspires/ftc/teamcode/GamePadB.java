@@ -17,7 +17,7 @@ public class GamePadB {
     }
     public void buttonA (boolean pressed) {
         if(pressed){
-            robot.armAttachment.extension.setPosition(500);
+            robot.actions.grabSubmersibleSample();
         }
     }
     public void buttonY (boolean pressed) {
