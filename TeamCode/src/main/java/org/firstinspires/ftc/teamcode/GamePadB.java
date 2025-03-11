@@ -18,15 +18,10 @@ public class GamePadB {
     public void buttonA (boolean pressed) {
         if(pressed){
             robot.armAttachment.extension.setPosition(500);
-            //robot.armAttachment.claw.open();
-            //robot.armAttachment.arm.setToSampleSubmersibleIntakeGrabPostion();
-            //robot.armAttachment.claw.close();
-            //robot.armAttachment.arm.setToSampleSubmersibleIntakePostion();
         }
     }
     public void buttonY (boolean pressed) {
         if(pressed){
-            //robot.armAttachment.wristRotate.setToCenterPosition();
             robot.armAttachment.wristHinge.setToSampleHighBasketDeliveryPosition();
         }
     }
@@ -38,10 +33,6 @@ public class GamePadB {
     public void buttonUp (boolean pressed) {
         if(pressed) {
             robot.poses.specimenDelivery();
-            // robot.armAttachment.arm.setToSpecimenDeliverPosition();
-            // robot.armAttachment.extension.setToSpecimenDeliverPosition();
-            // robot.armAttachment.wristHinge.setToSpecimenDeliverPosition();
-            // robot.armAttachment.claw.close();
         }
         
         
@@ -54,19 +45,11 @@ public class GamePadB {
     public void buttonLeft (boolean pressed) {
         if(pressed){
             robot.poses.sampleBasketDelivery();
-            // robot.armAttachment.extension.setToHighBasketPosition();
-            // robot.armAttachment.wristHinge.setToSampleHighBasketDeliveryPosition();
-            // robot.armAttachment.claw.open();
-            // robot.armAttachment.arm.setToHighBasketPosition();
         }
     }
     public void buttonRight (boolean pressed) {
         if(pressed){
             robot.poses.specimenIntake();
-            // robot.armAttachment.extension.setToSpecimenIntakePosition();
-            // robot.armAttachment.wristHinge.setToSpecimenIntakePosition();
-            // robot.armAttachment.claw.open();
-            // robot.armAttachment.arm.setToSpecimenIntakePosition();
         }
     }
     public void buttonLTrigger(double speed) {

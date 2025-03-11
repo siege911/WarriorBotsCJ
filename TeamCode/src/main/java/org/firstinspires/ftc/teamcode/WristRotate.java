@@ -30,13 +30,6 @@ public class WristRotate {
         }
     }
 
-    public void wristRotateLeft() {
-        setPosition(0.2);
-    }
-    public void wristRotateRight() {
-        setPosition(0.8);
-    }
-
     public double getPosition() {
         return this.servo.getPosition();
     }
@@ -52,13 +45,19 @@ public class WristRotate {
         setPosition(START);
     }
     public void setToCenterPosition() {
+
         setPosition(CENTER_POSITION);
+        positionIndex = 2;
     }
     public void setToCWPosition() {
+
         setPosition(MAX_CW_POSITION);
+        positionIndex = 0;
     }
     public void setToCCWPosition() {
+
         setPosition(MAX_CCW_POSITION);
+        positionIndex = 4;
     }
     public void rotateRight() {
         if(positionIndex < 4) {

@@ -22,6 +22,8 @@ public class Arm {
     public final int SAMPLE_INTAKE_HOVER = 275;
 
     private boolean isMoving = false;
+    private int targetPosition = -1000;
+    private static int positionOffset = 50;
 
     public Arm(HardwareMap hardwareMap){
         this.motor = hardwareMap.get(DcMotor.class, "rotaryArm");
@@ -34,17 +36,31 @@ public class Arm {
         return this.motor.getCurrentPosition();
     }
 
-    public void moveByInput(double power){
+    //Provide feedback on whether we get to our target from a "setPosition" command
+    public boolean getIsAtTarget() {
+        if (targetPosition != -1000) {
+            if (getPosition() > targetPosition - positionOffset || getPosition() < targetPosition + positionOffset) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
 
+    public void moveByInput(double power){
         if(power > 0.1 && getPosition() < MAX_POSITION) {
             this.motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             motor.setPower(power);
             isMoving = true;
+            targetPosition = -1000;
         }
         else if(power < -0.1 && getPosition() > MIN_POSITION) {
             this.motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             motor.setPower(power * 0.7);
             isMoving = true;
+            targetPosition = -1000;
         }
         else if (isMoving) {
             setPosition(getPosition());
