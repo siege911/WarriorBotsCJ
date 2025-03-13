@@ -16,6 +16,11 @@ public class Extension {
     public final int SPECIMEN_DELIVER_ANGLE = 2000;
     public final int ASCENT_ANGLE = 2930; //DO NOT set over 2930!!!
     public final int SAMPLE_SUBMERSIBLE_ANGLE = 3600;
+    public final int HANG_START = 3600;
+    public final int HANG_END = 0;
+
+    private int targetPosition = -1000;
+    private static int positionOffset = 50;
 
     private boolean isMoving = false;
 
@@ -38,16 +43,30 @@ public class Extension {
         motor.setPower(1);
     }
 
+    public boolean getIsAtTarget() {
+        if (targetPosition != -1000) {
+            if (getPosition() > targetPosition - positionOffset || getPosition() < targetPosition + positionOffset) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
     public void moveByInput(double power){
         if(power > 0.1 && getPosition() < MAX_POSITION) {
             this.motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             motor.setPower(power);
             isMoving = true;
+            targetPosition = -1000;
         }
         else if(power < -0.1 && getPosition() > MIN_POSITION) {
             this.motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             motor.setPower(power * 0.5);
             isMoving = true;
+            targetPosition = -1000;
         }
         else if (isMoving) {
             setPosition(getPosition());
@@ -84,4 +103,10 @@ public class Extension {
     public void setToSampleSubmersibleIntakePosition() {
         setPosition(SAMPLE_SUBMERSIBLE_ANGLE);
      }
+    public void setToHangStart() {
+        setPosition(HANG_START);
+    }
+    public void setToHangEnd() {
+        setPosition(HANG_END);
+    }
 }

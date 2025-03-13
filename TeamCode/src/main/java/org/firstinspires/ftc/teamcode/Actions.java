@@ -49,4 +49,22 @@ public class Actions {
         }
     }
 
+    public void gameEndHang() {
+        if(!isActionActive) {
+            isActionActive = true;
+            setActionTimeout(5000);
+            robot.armAttachment.arm.setToHangStart();
+            robot.armAttachment.extension.setToHangStart();
+            while(!robot.armAttachment.arm.getIsAtTarget() && !robot.armAttachment.extension.getIsAtTarget() && !isActionTimeout()) {
+                //just wait until we reach the target or we timeout
+            }
+            robot.armAttachment.arm.setToHangEnd();
+            robot.armAttachment.extension.setToHangEnd();
+            while(!robot.armAttachment.arm.getIsAtTarget() && !robot.armAttachment.extension.getIsAtTarget() && !isActionTimeout()) {
+                //just wait until we reach the target or we timeout
+            }
+            isActionActive = false;
+        }
+    }
+
 }

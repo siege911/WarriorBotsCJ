@@ -20,6 +20,8 @@ public class Arm {
     public final int SAMPLE_SUBMERSIBLE_INTAKE = 600;
     public final int SAMPLE_SUBMERSIBLE_GRAB_INTAKE = 480;
     public final int SAMPLE_INTAKE_HOVER = 275;
+    private int HANG_START = 2930;
+    private int HANG_END = 2500;
 
     private boolean isMoving = false;
     private int targetPosition = -1000;
@@ -108,6 +110,12 @@ public class Arm {
     }
     public void setToSampleSubmersibleIntakeGrabPostion() {
         setPosition(SAMPLE_SUBMERSIBLE_GRAB_INTAKE);
+    }
+    public void setToHangStart() {
+        setPosition(HANG_START);
+    }
+    public void setToHangEnd() {
+        setPosition(HANG_END);
     }
     public void setToSampleIntakeHoverPosition() {
         setPosition(SAMPLE_INTAKE_HOVER);

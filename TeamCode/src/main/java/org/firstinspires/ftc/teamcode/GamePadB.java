@@ -22,7 +22,7 @@ public class GamePadB {
     }
     public void buttonY (boolean pressed) {
         if(pressed){
-            robot.armAttachment.wristHinge.setToSampleHighBasketDeliveryPosition();
+            robot.actions.gameEndHang();
         }
     }
     public void buttonX (boolean pressed) {
