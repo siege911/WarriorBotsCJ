@@ -41,31 +41,31 @@
 //         waitForStart();
 //         // Execute one-time code here
 //         sleep(1000);
-//         robot.armAttachment.claw.close();
-//         robot.drive.moveRelativeByDistance(20, 0, 0.5);
-//         robot.drive.moveRelativeByDistance(0, -13, 0.5);
-//         robot.armAttachment.arm.setToSpecimenDeliverPosition();
+//         robot.claw.close();
+//         robot.driveBase.moveRelativeByDistance(20, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(0, -13, 0.5);
+//         robot.arm.setToSpecimenDeliverPosition();
 //         sleep(1000);
-//         robot.armAttachment.wristHinge.setToSpecimenDeliverPosition();
-//         robot.armAttachment.extension.setToSpecimenDeliverPosition();
+//         robot.wristHinge.setToSpecimenDeliverPosition();
+//         robot.extension.setToSpecimenDeliverPosition();
 //         sleep(1000);
-//         robot.drive.moveRelativeByDistance(12, 0, 0.5);
-//         robot.armAttachment.claw.open();
-//         robot.drive.moveRelativeByDistance(-5, 0, 0.5);
-//         robot.armAttachment.extension.setToMinPosition();
+//         robot.driveBase.moveRelativeByDistance(12, 0, 0.5);
+//         robot.claw.open();
+//         robot.driveBase.moveRelativeByDistance(-5, 0, 0.5);
+//         robot.extension.setToMinPosition();
 //         sleep (500);
-//         robot.drive.moveRelativeByDistance(0, 41, 0.5);
-//         robot.drive.moveRelativeByDistance(25, 0, 0.5);
-//         robot.drive.moveRelativeByDistance(0, 12, 0.5);
-//         robot.drive.moveRelativeByDistance(-40, 0, 0.5);
-//         robot.drive.moveRelativeByDistance(40, 0, .5);
-//         robot.drive.moveRelativeByDistance(0, 14, 0.5);
-//         robot.drive.moveRelativeByDistance(-40, 0, 0.5);
-//         robot.drive.moveRelativeByDistance(40, 0, 0.5);
-//         robot.drive.moveRelativeByDistance(0, 15, 0.5);
-//         robot.drive.moveRelativeByDistance(-45, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(0, 41, 0.5);
+//         robot.driveBase.moveRelativeByDistance(25, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(0, 12, 0.5);
+//         robot.driveBase.moveRelativeByDistance(-40, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(40, 0, .5);
+//         robot.driveBase.moveRelativeByDistance(0, 14, 0.5);
+//         robot.driveBase.moveRelativeByDistance(-40, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(40, 0, 0.5);
+//         robot.driveBase.moveRelativeByDistance(0, 15, 0.5);
+//         robot.driveBase.moveRelativeByDistance(-45, 0, 0.5);
 //         
-//          //robot.armAttachment.wristHinge.setPosition(.3);
+//          //robot.wristHinge.setPosition(.3);
 //          //Please test this code before deleting
 //          
 //          
@@ -73,11 +73,11 @@
 //         
 //         while(opModeIsActive()) {
 //             //telemetry.addData("time", runtime.seconds());
-//             telemetry.addData("arm:", robot.armAttachment.arm.getPosition());
-//             telemetry.addData("claw:", robot.armAttachment.claw.getPosition());
-//             telemetry.addData("extension:", robot.armAttachment.extension.getPosition());
-//             telemetry.addData("wristHinge:", robot.armAttachment.wristHinge.getPosition());
-//             telemetry.addData("wristRotate:", robot.armAttachment.wristRotate.getPosition());
+//             telemetry.addData("arm:", robot.arm.getPosition());
+//             telemetry.addData("claw:", robot.claw.getPosition());
+//             telemetry.addData("extension:", robot.extension.getPosition());
+//             telemetry.addData("wristHinge:", robot.wristHinge.getPosition());
+//             telemetry.addData("wristRotate:", robot.wristRotate.getPosition());
 //             telemetry.update();
 //         }
 //     }

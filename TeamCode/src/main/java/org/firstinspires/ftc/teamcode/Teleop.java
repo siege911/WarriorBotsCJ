@@ -58,11 +58,11 @@ import com.qualcomm.robotcore.hardware.Gamepad;
              gamepadB.joystickRightY(gamepad2.right_stick_y);
             
             telemetry.addData("time", runtime.seconds());
-            telemetry.addData("arm:", robot.armAttachment.arm.getPosition());
-            telemetry.addData("claw:", robot.armAttachment.claw.getPosition());
-            telemetry.addData("extension:", robot.armAttachment.extension.getPosition());
-            telemetry.addData("wristHinge:", robot.armAttachment.wristHinge.getPosition());
-            telemetry.addData("wristRotate:", robot.armAttachment.wristRotate.getPosition());
+            telemetry.addData("arm:", robot.arm.getPosition());
+            telemetry.addData("claw:", robot.claw.getPosition());
+            telemetry.addData("extension:", robot.extension.getPosition());
+            telemetry.addData("wristHinge:", robot.wristHinge.getPosition());
+            telemetry.addData("wristRotate:", robot.wristRotate.getPosition());
             telemetry.update();
          }
      }

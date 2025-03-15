@@ -32,16 +32,16 @@ public class Actions {
             if(!isActionActive) {
                 isActionActive = true;
                 setActionTimeout(2000);
-                robot.armAttachment.claw.open();
-                robot.armAttachment.arm.setToSampleSubmersibleIntakeGrabPostion();
-                while (!robot.armAttachment.arm.getIsAtTarget() && !isActionTimeout()) {
+                robot.claw.open();
+                robot.arm.setToSampleSubmersibleIntakeGrabPostion();
+                while (!robot.arm.getIsAtTarget() && !isActionTimeout()) {
                     //just wait until we reach the target or we timeout
                 }
             }
             if(!isActionActive) {
-                robot.armAttachment.claw.close();
-                robot.armAttachment.arm.setToSampleSubmersibleIntakePostion();
-                while(!robot.armAttachment.arm.getIsAtTarget() && !isActionTimeout()) {
+                robot.claw.close();
+                robot.arm.setToSampleSubmersibleIntakePostion();
+                while(!robot.arm.getIsAtTarget() && !isActionTimeout()) {
                     //just wait until we reach the target or we timeout
                 }
             }
@@ -53,14 +53,14 @@ public class Actions {
         if(!isActionActive) {
             isActionActive = true;
             setActionTimeout(5000);
-            robot.armAttachment.arm.setToHangStart();
-            robot.armAttachment.extension.setToHangStart();
-            while(!robot.armAttachment.arm.getIsAtTarget() && !robot.armAttachment.extension.getIsAtTarget() && !isActionTimeout()) {
+            robot.arm.setToHangStart();
+            robot.extension.setToHangStart();
+            while(!robot.arm.getIsAtTarget() && !robot.extension.getIsAtTarget() && !isActionTimeout()) {
                 //just wait until we reach the target or we timeout
             }
-            robot.armAttachment.arm.setToHangEnd();
-            robot.armAttachment.extension.setToHangEnd();
-            while(!robot.armAttachment.arm.getIsAtTarget() && !robot.armAttachment.extension.getIsAtTarget() && !isActionTimeout()) {
+            robot.arm.setToHangEnd();
+            robot.extension.setToHangEnd();
+            while(!robot.arm.getIsAtTarget() && !robot.extension.getIsAtTarget() && !isActionTimeout()) {
                 //just wait until we reach the target or we timeout
             }
             isActionActive = false;

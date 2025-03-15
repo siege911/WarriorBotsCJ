@@ -13,36 +13,36 @@ public class Poses {
     }
     public void submersibleSampleIntake() {
         currentPose = CurrentPose.SUBMERSIBLE_SAMPLE_INTAKE;
-        robot.armAttachment.extension.setToSampleSubmersibleIntakePosition();
-        robot.armAttachment.wristHinge.setToSampleSubmersIntakePosition();
-        robot.armAttachment.claw.open();
-        robot.armAttachment.arm.setToSampleSubmersibleIntakePostion();
+        robot.extension.setToSampleSubmersibleIntakePosition();
+        robot.wristHinge.setToSampleSubmersIntakePosition();
+        robot.claw.open();
+        robot.arm.setToSampleSubmersibleIntakePostion();
     }
 
     public void sampleBasketDelivery() {
         currentPose = CurrentPose.SAMPLE_BASKET_DELIVERY;
-        robot.armAttachment.extension.setToHighBasketPosition();
-        robot.armAttachment.wristHinge.setToSampleHighBasketDeliveryPosition();
-        robot.armAttachment.wristRotate.setToCenterPosition();
-        robot.armAttachment.arm.setToHighBasketPosition();
+        robot.extension.setToHighBasketPosition();
+        robot.wristHinge.setToSampleHighBasketDeliveryPosition();
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setToHighBasketPosition();
     }
 
     public void specimenDelivery() {
         currentPose = CurrentPose.SPECIMEN_DELIVERY;
-        robot.armAttachment.arm.setToSpecimenDeliverPosition();
-        robot.armAttachment.extension.setToSpecimenDeliverPosition();
-        robot.armAttachment.wristHinge.setToSpecimenDeliverPosition();
-        robot.armAttachment.wristRotate.setToCenterPosition();
-        robot.armAttachment.claw.close();
+        robot.arm.setToSpecimenDeliverPosition();
+        robot.extension.setToSpecimenDeliverPosition();
+        robot.wristHinge.setToSpecimenDeliverPosition();
+        robot.wristRotate.setToCenterPosition();
+        robot.claw.close();
     }
 
     public void specimenIntake() {
         currentPose = CurrentPose.SPECIMEN_INTAKE;
-        robot.armAttachment.extension.setToSpecimenIntakePosition();
-        robot.armAttachment.wristHinge.setToSpecimenIntakePosition();
-        robot.armAttachment.wristRotate.setToCenterPosition();
-        robot.armAttachment.claw.open();
-        robot.armAttachment.arm.setToSpecimenIntakePosition();
+        robot.extension.setToSpecimenIntakePosition();
+        robot.wristHinge.setToSpecimenIntakePosition();
+        robot.wristRotate.setToCenterPosition();
+        robot.claw.open();
+        robot.arm.setToSpecimenIntakePosition();
     }
     // todo: write your code here
 }

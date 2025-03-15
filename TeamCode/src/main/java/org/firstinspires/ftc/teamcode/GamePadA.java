@@ -25,6 +25,6 @@ public class GamePadA {
     public void buttonLBumper (boolean pressed) {}
     public void buttonRBumper (boolean pressed) {}
     public void motion(double surge, double sway, double yaw) {
-        robot.drive.drive(surge, sway, yaw, SPEED);
+        robot.driveBase.drive(surge, sway, yaw, SPEED);
     }
 }

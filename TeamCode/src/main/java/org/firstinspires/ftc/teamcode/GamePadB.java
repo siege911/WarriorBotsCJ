@@ -12,7 +12,7 @@ public class GamePadB {
 
     public void buttonB (boolean pressed) {
         if(pressed) {
-            robot.armAttachment.claw.open();
+            robot.claw.open();
         }
     }
     public void buttonA (boolean pressed) {
@@ -27,7 +27,7 @@ public class GamePadB {
     }
     public void buttonX (boolean pressed) {
         if(pressed){
-            robot.armAttachment.claw.close();
+            robot.claw.close();
         }
     }
     public void buttonUp (boolean pressed) {
@@ -61,7 +61,7 @@ public class GamePadB {
     public void buttonLBumper (boolean pressed) {
         if(pressed){
             if(!leftBumperPressed) {
-                robot.armAttachment.wristRotate.rotateLeft();
+                robot.wristRotate.rotateLeft();
                 leftBumperPressed = true;
             }
         } else {
@@ -71,7 +71,7 @@ public class GamePadB {
     public void buttonRBumper (boolean pressed) {
         if(pressed){
             if(!rightBumperPressed) {
-                robot.armAttachment.wristRotate.rotateRight();
+                robot.wristRotate.rotateRight();
                 rightBumperPressed = true;
             }
         } else {
@@ -79,10 +79,10 @@ public class GamePadB {
         }
     }
     public void joystickLeftY (double speed) {
-        robot.armAttachment.extension.moveByInput(-speed);
+        robot.extension.moveByInput(-speed);
     }
     public void joystickRightY (double speed) {
-        robot.armAttachment.arm.moveByInput(-speed);
+        robot.arm.moveByInput(-speed);
     }
     public void joystickLeftX (double speed) {
         if(speed > 0.1 || speed < -0.1) {}

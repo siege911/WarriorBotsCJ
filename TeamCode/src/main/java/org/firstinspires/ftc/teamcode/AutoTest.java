@@ -42,57 +42,57 @@ public final int ARM_START_ANGLE = 0; //Do NOT set this under 0!!!
         // Execute one-time code here
         double driveSpeed = .7;
         sleep(250);
-        robot.armAttachment.claw.close();
-        robot.armAttachment.arm.setToSpecimenDeliverPosition();
-        robot.armAttachment.wristHinge.setToSpecimenDeliverPosition();
-        robot.armAttachment.extension.setToSpecimenDeliverPosition();
-        robot.drive.moveRelativeByDistance(18, 0, driveSpeed);
-        robot.drive.moveRelativeByDistance(0, -10, driveSpeed);
+        robot.claw.close();
+        robot.arm.setToSpecimenDeliverPosition();
+        robot.wristHinge.setToSpecimenDeliverPosition();
+        robot.extension.setToSpecimenDeliverPosition();
+        robot.driveBase.moveRelativeByDistance(18, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(0, -10, driveSpeed);
         //clip specimen
-        robot.drive.moveRelativeByDistance(14, 0, driveSpeed);
-        robot.armAttachment.claw.open();
+        robot.driveBase.moveRelativeByDistance(14, 0, driveSpeed);
+        robot.claw.open();
         //go to samples
-        robot.drive.moveRelativeByDistance(-15, 0, driveSpeed);
-        robot.armAttachment.extension.setToMinPosition();
-        robot.drive.moveRelativeByDistance(0, 42, driveSpeed);
-        robot.drive.moveRelativeByDistance(35, 0, .5);
+        robot.driveBase.moveRelativeByDistance(-15, 0, driveSpeed);
+        robot.extension.setToMinPosition();
+        robot.driveBase.moveRelativeByDistance(0, 42, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(35, 0, .5);
         //first sample(left)
-        robot.drive.moveRelativeByDistance(0, 12, driveSpeed);
-        robot.drive.moveRelativeByDistance(-40, 0, driveSpeed);
-        robot.drive.moveRelativeByDistance(40, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(0, 12, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(-40, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(40, 0, driveSpeed);
         //second sample(middle)
-        robot.drive.moveRelativeByDistance(0, 12, .5);
-        robot.drive.moveRelativeByDistance(-40, 0, driveSpeed);
-        robot.drive.moveRelativeByDistance(40, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(0, 12, .5);
+        robot.driveBase.moveRelativeByDistance(-40, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(40, 0, driveSpeed);
         //last sample(right)
-        robot.drive.turnToHeading(160,1);
-        robot.drive.moveRelativeByDistance(0, -10, .25);
-        robot.armAttachment.arm.setToSpecimenIntakePosition();
-        robot.armAttachment.wristHinge.setToSpecimenIntakePosition();
+        robot.driveBase.turnToHeading(160,1);
+        robot.driveBase.moveRelativeByDistance(0, -10, .25);
+        robot.arm.setToSpecimenIntakePosition();
+        robot.wristHinge.setToSpecimenIntakePosition();
         //specimen intake
-        robot.drive.moveRelativeByDistance(35, 0, driveSpeed);
-        robot.drive.moveRelativeByDistance(9, 0, .25);
-        robot.armAttachment.claw.close();
+        robot.driveBase.moveRelativeByDistance(35, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(9, 0, .25);
+        robot.claw.close();
         sleep(500);
-        robot.armAttachment.arm.setToSpecimenDeliverPosition();
-        robot.armAttachment.wristHinge.setToSpecimenDeliverPosition();
-        robot.drive.moveRelativeByDistance(-5, 0, driveSpeed);
-        robot.drive.moveRelativeByDistance(0, 10, driveSpeed);
-        robot.drive.turnToHeading(-20,1);
-        robot.armAttachment.extension.setToSpecimenDeliverPosition();
+        robot.arm.setToSpecimenDeliverPosition();
+        robot.wristHinge.setToSpecimenDeliverPosition();
+        robot.driveBase.moveRelativeByDistance(-5, 0, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(0, 10, driveSpeed);
+        robot.driveBase.turnToHeading(-20,1);
+        robot.extension.setToSpecimenDeliverPosition();
         //second specimen delivery
-        robot.drive.moveRelativeByDistance(0, -70, driveSpeed);
-        robot.drive.moveRelativeByDistance(20, 0, driveSpeed);
-        robot.armAttachment.claw.open();
-        robot.drive.moveRelativeByDistance(-20, 0, 1);
-        robot.drive.moveRelativeByDistance(0, 70, 1);
-        robot.armAttachment.extension.setToMinPosition();
+        robot.driveBase.moveRelativeByDistance(0, -70, driveSpeed);
+        robot.driveBase.moveRelativeByDistance(20, 0, driveSpeed);
+        robot.claw.open();
+        robot.driveBase.moveRelativeByDistance(-20, 0, 1);
+        robot.driveBase.moveRelativeByDistance(0, 70, 1);
+        robot.extension.setToMinPosition();
         
         
         
         
         
-         //robot.armAttachment.wristHinge.setPosition(.3);
+         //robot.wristHinge.setPosition(.3);
          //Please test this code before deleting
          
          
@@ -100,11 +100,11 @@ public final int ARM_START_ANGLE = 0; //Do NOT set this under 0!!!
         
         while(opModeIsActive()) {
             //telemetry.addData("time", runtime.seconds());
-            telemetry.addData("arm:", robot.armAttachment.arm.getPosition());
-            telemetry.addData("claw:", robot.armAttachment.claw.getPosition());
-            telemetry.addData("extension:", robot.armAttachment.extension.getPosition());
-            telemetry.addData("wristHinge:", robot.armAttachment.wristHinge.getPosition());
-            telemetry.addData("wristRotate:", robot.armAttachment.wristRotate.getPosition());
+            telemetry.addData("arm:", robot.arm.getPosition());
+            telemetry.addData("claw:", robot.claw.getPosition());
+            telemetry.addData("extension:", robot.extension.getPosition());
+            telemetry.addData("wristHinge:", robot.wristHinge.getPosition());
+            telemetry.addData("wristRotate:", robot.wristRotate.getPosition());
             telemetry.update();
         }
     }
