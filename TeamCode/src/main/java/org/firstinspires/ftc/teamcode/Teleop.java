@@ -2,12 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Gamepad;
- import com.qualcomm.robotcore.robot.Robot;
  import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
- import org.firstinspires.ftc.robotcore.external.Telemetry;
  
- @TeleOp(name="NewTeleOp")
+ @TeleOp(name="TeleOp")
  public class Teleop extends LinearOpMode {
  
  
