@@ -1,6 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 public class GamePadB {
-
+    private boolean buttonAPressed = false;
+    private boolean buttonBPressed = false;
+    private boolean buttonXPressed = false;
+    private boolean buttonYPressed = false;
+    private boolean buttonUpPressed = false;
+    private boolean buttonDownPressed = false;
+    private boolean buttonLeftPressed = false;
+    private boolean buttonRightPressed = false;
     private boolean rightBumperPressed = false;
     private boolean leftBumperPressed = false;
 
@@ -11,45 +18,83 @@ public class GamePadB {
     }
 
     public void buttonB (boolean pressed) {
-        if(pressed) {
-            robot.claw.open();
+        if(pressed){
+            if(!buttonBPressed) {
+                robot.actions.grabSubmersibleSample();
+                buttonBPressed = true;
+            }
+        } else {
+            buttonBPressed = false;
         }
     }
     public void buttonA (boolean pressed) {
         if(pressed){
-            robot.actions.grabSubmersibleSample();
+            if(!buttonAPressed) {
+                robot.claw.toggle();
+                buttonAPressed = true;
+            }
+        } else {
+            buttonAPressed = false;
         }
     }
     public void buttonY (boolean pressed) {
         if(pressed){
-            robot.actions.gameEndHang();
+            if(!buttonYPressed) {
+                robot.actions.gameEndHang();
+                buttonYPressed = true;
+            }
+        } else {
+            buttonYPressed = false;
         }
     }
     public void buttonX (boolean pressed) {
         if(pressed){
-            robot.claw.close();
+            if(!buttonXPressed) {
+                //Insert Here
+                buttonXPressed = true;
+            }
+        } else {
+            buttonXPressed = false;
         }
     }
     public void buttonUp (boolean pressed) {
-        if(pressed) {
-            robot.poses.specimenDelivery();
+        if(pressed){
+            if(!buttonUpPressed) {
+                robot.poses.specimenDelivery();
+                buttonUpPressed = true;
+            }
+        } else {
+            buttonUpPressed = false;
         }
-        
-        
     }
     public void buttonDown (boolean pressed) {
         if(pressed){
-            robot.poses.submersibleSampleIntake();
+            if(!buttonDownPressed) {
+                robot.poses.submersibleSampleIntake();
+                buttonDownPressed = true;
+            }
+        } else {
+            buttonDownPressed = false;
         }
     }
     public void buttonLeft (boolean pressed) {
         if(pressed){
-            robot.poses.sampleBasketDelivery();
+            if(!buttonLeftPressed) {
+                robot.poses.sampleBasketDelivery();
+                buttonLeftPressed = true;
+            }
+        } else {
+            buttonLeftPressed = false;
         }
     }
     public void buttonRight (boolean pressed) {
         if(pressed){
-            robot.poses.specimenIntake();
+            if(!buttonRightPressed) {
+                robot.poses.sampleBasketDelivery();
+                buttonRightPressed = true;
+            }
+        } else {
+            buttonRightPressed = false;
         }
     }
     public void buttonLTrigger(double speed) {
@@ -79,10 +124,14 @@ public class GamePadB {
         }
     }
     public void joystickLeftY (double speed) {
-        robot.extension.moveByInput(-speed);
+        if(speed > 0.1 || speed < -0.1) {
+            robot.extension.moveByInput(-speed);
+        };
     }
     public void joystickRightY (double speed) {
-        robot.arm.moveByInput(-speed);
+        if(speed > 0.1 || speed < -0.1) {
+            robot.arm.moveByInput(-speed);
+        };
     }
     public void joystickLeftX (double speed) {
         if(speed > 0.1 || speed < -0.1) {}

@@ -3,20 +3,80 @@ package org.firstinspires.ftc.teamcode;
 
 public class Poses {
 
+    //Constants inside the pose class
+    public final int armHighBasket = 2250;
+    public final int extensionHighBasket = 3600;
+    public final double wristHingeHighBasket = 0.7;
+
+
+
     private MyRobot robot;
     public enum CurrentPose {NONE, SUBMERSIBLE_SAMPLE_INTAKE, SAMPLE_BASKET_DELIVERY, SPECIMEN_DELIVERY, SPECIMEN_INTAKE};
     public CurrentPose currentPose = CurrentPose.NONE;
 
+    private Constants constants;
+
 
     public Poses(MyRobot robot) {
         this.robot=robot;
+        this.constants = new Constants();
     }
+
+    public void testHighBasketSampleOuttake() {
+        currentPose = CurrentPose.SAMPLE_BASKET_DELIVERY;
+
+
+        //Constants in the motor class
+        robot.claw.close();
+        robot.extension.setToHighBasketPosition();
+        robot.wristHinge.setToSampleHighBasketDeliveryPosition();
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setToHighBasketPosition();
+
+
+        //Constants in a separate dedicated class
+        robot.claw.close();
+        robot.extension.setPosition(constants.highBasketSampleOuttake.extension);
+        robot.wristHinge.setPosition(constants.highBasketSampleOuttake.wristHinge);
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setPosition(constants.highBasketSampleOuttake.arm);
+
+
+        robot.claw.close();
+        robot.extension.setPosition(extensionHighBasket);
+        robot.wristHinge.setPosition(wristHingeHighBasket);
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setPosition(armHighBasket);
+
+
+        //Constants inside the pose function
+        final int arm = 2250;
+        final int extension = 3600;
+        final double wristHinge = 0.7;
+
+        robot.claw.close();
+        robot.extension.setPosition(extension);
+        robot.wristHinge.setPosition(wristHinge);
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setPosition(arm);
+    }
+
     public void submersibleSampleIntake() {
         currentPose = CurrentPose.SUBMERSIBLE_SAMPLE_INTAKE;
-        robot.extension.setToSampleSubmersibleIntakePosition();
-        robot.wristHinge.setToSampleSubmersIntakePosition();
+
+        robot.extension.setPosition(constants.submersibleSampleIntake.extension);
+        robot.wristHinge.setPosition(constants.submersibleSampleIntake.wristHinge);
         robot.claw.open();
-        robot.arm.setToSampleSubmersibleIntakePostion();
+        robot.arm.setPosition(constants.submersibleSampleIntake.arm);
+
+
+        //robot.extension.setToSampleSubmersibleIntakePosition();
+        //robot.wristHinge.setToSampleSubmersIntakePosition();
+        //robot.claw.open();
+        //robot.arm.setToSampleSubmersibleIntakePostion();
+
+
+
     }
 
     public void sampleBasketDelivery() {
