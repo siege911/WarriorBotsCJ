@@ -34,20 +34,6 @@ public class Poses {
         robot.arm.setToHighBasketPosition();
 
 
-        //Constants in a separate dedicated class
-        robot.claw.close();
-        robot.extension.setPosition(constants.highBasketSampleOuttake.extension);
-        robot.wristHinge.setPosition(constants.highBasketSampleOuttake.wristHinge);
-        robot.wristRotate.setToCenterPosition();
-        robot.arm.setPosition(constants.highBasketSampleOuttake.arm);
-
-
-        robot.claw.close();
-        robot.extension.setPosition(extensionHighBasket);
-        robot.wristHinge.setPosition(wristHingeHighBasket);
-        robot.wristRotate.setToCenterPosition();
-        robot.arm.setPosition(armHighBasket);
-
 
         //Constants inside the pose function
         final int arm = 2250;
@@ -59,21 +45,35 @@ public class Poses {
         robot.wristHinge.setPosition(wristHinge);
         robot.wristRotate.setToCenterPosition();
         robot.arm.setPosition(arm);
+
+
+
+        //Constants inside the pose class
+        robot.claw.close();
+        robot.extension.setPosition(extensionHighBasket);
+        robot.wristHinge.setPosition(wristHingeHighBasket);
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setPosition(armHighBasket);
+
+
+
+
+        //Constants in a separate dedicated class
+        robot.claw.close();
+        robot.extension.setPosition(constants.highBasketSampleDelivery.extension);
+        robot.wristHinge.setPosition(constants.highBasketSampleDelivery.wristHinge);
+        robot.wristRotate.setToCenterPosition();
+        robot.arm.setPosition(constants.highBasketSampleDelivery.arm);
     }
 
     public void submersibleSampleIntake() {
         currentPose = CurrentPose.SUBMERSIBLE_SAMPLE_INTAKE;
 
-        robot.extension.setPosition(constants.submersibleSampleIntake.extension);
-        robot.wristHinge.setPosition(constants.submersibleSampleIntake.wristHinge);
+
+        robot.extension.setToSampleSubmersibleIntakePosition();
+        robot.wristHinge.setToSampleSubmersIntakePosition();
         robot.claw.open();
-        robot.arm.setPosition(constants.submersibleSampleIntake.arm);
-
-
-        //robot.extension.setToSampleSubmersibleIntakePosition();
-        //robot.wristHinge.setToSampleSubmersIntakePosition();
-        //robot.claw.open();
-        //robot.arm.setToSampleSubmersibleIntakePostion();
+        robot.arm.setToSampleSubmersibleIntakePostion();
 
 
 

@@ -1,21 +1,22 @@
 package org.firstinspires.ftc.teamcode;
 
 public class Constants {
-    public HighBasketSampleOuttake highBasketSampleOuttake;
+    public HighBasketSampleDelivery highBasketSampleDelivery;
     public WallSpecimenIntake wallSpecimenIntake;
     public GroundSpecimenIntake groundSpecimenIntake;
     public SubmersibleSampleHover submersibleSampleHover;
     public SubmersibleSampleIntake submersibleSampleIntake;
-    public HighBarSpecimenOuttake highBarSpecimenOuttake;
+    public HighBarSpecimenDelivery highBarSpecimenDelivery;
     public Constants() {
-        this.highBasketSampleOuttake = new HighBasketSampleOuttake();
+        this.highBasketSampleDelivery = new HighBasketSampleDelivery();
         this.wallSpecimenIntake = new WallSpecimenIntake();
         this.groundSpecimenIntake = new GroundSpecimenIntake();
         this.submersibleSampleHover = new SubmersibleSampleHover();
         this.submersibleSampleIntake = new SubmersibleSampleIntake();
-        this.highBarSpecimenOuttake = new HighBarSpecimenOuttake();
+        this.highBarSpecimenDelivery = new HighBarSpecimenDelivery();
     }
-    public static class HighBasketSampleOuttake {
+
+    public static class HighBasketSampleDelivery {
         public final int arm = 2250;
         public final int extension = 3600;
         public final double wristHinge = 0.7;
@@ -45,7 +46,7 @@ public class Constants {
         public final double wristHinge = 0.25;
     }
 
-    public static class HighBarSpecimenOuttake {
+    public static class HighBarSpecimenDelivery {
         public final int arm = 1125;
         public final int extension = 2000;
         public final double wristHinge = 0.7;
