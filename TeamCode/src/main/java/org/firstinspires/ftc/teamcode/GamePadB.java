@@ -90,7 +90,7 @@ public class GamePadB {
     public void buttonRight (boolean pressed) {
         if(pressed){
             if(!buttonRightPressed) {
-                robot.poses.sampleBasketDelivery();
+                robot.poses.specimenIntake();
                 buttonRightPressed = true;
             }
         } else {
@@ -124,14 +124,10 @@ public class GamePadB {
         }
     }
     public void joystickLeftY (double speed) {
-        if(speed > 0.1 || speed < -0.1) {
-            robot.extension.moveByInput(-speed);
-        };
+        robot.extension.moveByInput(-speed);
     }
     public void joystickRightY (double speed) {
-        if(speed > 0.1 || speed < -0.1) {
-            robot.arm.moveByInput(-speed);
-        };
+        robot.arm.moveByInput(-speed);
     }
     public void joystickLeftX (double speed) {
         if(speed > 0.1 || speed < -0.1) {}

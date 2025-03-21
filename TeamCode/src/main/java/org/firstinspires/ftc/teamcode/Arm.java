@@ -16,7 +16,7 @@ public class Arm {
     public final int SPECIMEN_INTAKE_ANGLE = 450;
     public final int SPECIMEN_DELIVER_ANGLE = 1125;
     public final int ASCENT_ANGLE = 0; //Ascent not possible yet
-    public final int SAMPLE_SUBMERSIBLE_INTAKE = 600;
+    public final int SAMPLE_SUBMERSIBLE_INTAKE = 650;
     public final int SAMPLE_SUBMERSIBLE_GRAB_INTAKE = 480;
     public final int SAMPLE_INTAKE_HOVER = 275;
     private int HANG_START = 2930;
@@ -24,7 +24,7 @@ public class Arm {
 
     private boolean isMoving = false;
     private int targetPosition = -1000;
-    private static int positionOffset = 50;
+    private static int positionOffset = 10;
 
     public Arm(HardwareMap hardwareMap){
         this.motor = hardwareMap.get(DcMotor.class, "rotaryArm");
@@ -35,6 +35,10 @@ public class Arm {
 
     public int getPosition() {
         return this.motor.getCurrentPosition();
+    }
+
+    public int getTargetPosition() {
+        return targetPosition;
     }
 
     //Provide feedback on whether we get to our target from a "setPosition" command

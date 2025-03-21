@@ -56,6 +56,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
             
             telemetry.addData("time", runtime.seconds());
             telemetry.addData("arm:", robot.arm.getPosition());
+             telemetry.addData("armTarget:", robot.arm.getTargetPosition());
             telemetry.addData("claw:", robot.claw.getPosition());
             telemetry.addData("extension:", robot.extension.getPosition());
             telemetry.addData("wristHinge:", robot.wristHinge.getPosition());

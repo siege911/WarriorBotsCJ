@@ -14,12 +14,10 @@ public class Poses {
     public enum CurrentPose {NONE, SUBMERSIBLE_SAMPLE_INTAKE, SAMPLE_BASKET_DELIVERY, SPECIMEN_DELIVERY, SPECIMEN_INTAKE};
     public CurrentPose currentPose = CurrentPose.NONE;
 
-    private Constants constants;
 
 
     public Poses(MyRobot robot) {
         this.robot=robot;
-        this.constants = new Constants();
     }
 
     public void testHighBasketSampleOuttake() {
@@ -36,10 +34,10 @@ public class Poses {
 
         //Constants in a separate dedicated class
         robot.claw.close();
-        robot.extension.setPosition(constants.highBasketSampleOuttake.extension);
-        robot.wristHinge.setPosition(constants.highBasketSampleOuttake.wristHinge);
+        robot.extension.setPosition(robot.constants.highBasketSampleOuttake.extension);
+        robot.wristHinge.setPosition(robot.constants.highBasketSampleOuttake.wristHinge);
         robot.wristRotate.setToCenterPosition();
-        robot.arm.setPosition(constants.highBasketSampleOuttake.arm);
+        robot.arm.setPosition(robot.constants.highBasketSampleOuttake.arm);
 
 
         robot.claw.close();
@@ -64,10 +62,10 @@ public class Poses {
     public void submersibleSampleIntake() {
         currentPose = CurrentPose.SUBMERSIBLE_SAMPLE_INTAKE;
 
-        robot.extension.setPosition(constants.submersibleSampleIntake.extension);
-        robot.wristHinge.setPosition(constants.submersibleSampleIntake.wristHinge);
+        robot.extension.setPosition(robot.constants.submersibleSampleHover.extension);
+        robot.wristHinge.setPosition(robot.constants.submersibleSampleHover.wristHinge);
         robot.claw.open();
-        robot.arm.setPosition(constants.submersibleSampleIntake.arm);
+        robot.arm.setPosition(robot.constants.submersibleSampleHover.arm);
 
 
         //robot.extension.setToSampleSubmersibleIntakePosition();

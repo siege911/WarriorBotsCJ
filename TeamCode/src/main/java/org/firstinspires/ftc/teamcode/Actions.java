@@ -33,15 +33,15 @@ public class Actions {
                 isActionActive = true;
                 setActionTimeout(2000);
                 robot.claw.open();
-                robot.arm.setToSampleSubmersibleIntakeGrabPostion();
-                while (!robot.arm.getIsAtTarget() && !isActionTimeout()) {
+                robot.arm.setPosition(robot.constants.submersibleSampleIntake.arm);
+                //robot.arm.setToSampleSubmersibleIntakeGrabPostion();
+                while (!robot.arm.getIsAtTarget()) {
                     //just wait until we reach the target or we timeout
                 }
-            }
-            if(!isActionActive) {
                 robot.claw.close();
+                robot.arm.setPosition(robot.constants.submersibleSampleHover.arm);
                 robot.arm.setToSampleSubmersibleIntakePostion();
-                while(!robot.arm.getIsAtTarget() && !isActionTimeout()) {
+                while(!robot.arm.getIsAtTarget()) {
                     //just wait until we reach the target or we timeout
                 }
             }

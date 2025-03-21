@@ -11,6 +11,7 @@ public class MyRobot {
     public WristRotate wristRotate;
     public Poses poses;
     public Actions actions;
+    public Constants constants;
 
     public MyRobot(HardwareMap hardwareMap) {
         this.arm = new Arm(hardwareMap);
@@ -21,6 +22,7 @@ public class MyRobot {
         this.driveBase = new DriveBase(hardwareMap);
         this.poses = new Poses(this);
         this.actions = new Actions(this);
+        this.constants = new Constants();
     }
 
 }
