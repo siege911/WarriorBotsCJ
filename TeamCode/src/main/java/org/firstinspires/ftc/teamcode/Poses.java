@@ -36,10 +36,10 @@ public class Poses {
 
         //Constants in a separate dedicated class
         robot.claw.close();
-        robot.extension.setPosition(constants.highBasketSampleOuttake.extension);
-        robot.wristHinge.setPosition(constants.highBasketSampleOuttake.wristHinge);
+        robot.extension.setPosition(constants.highBasketSampleDelivery.extension);
+        robot.wristHinge.setPosition(constants.highBasketSampleDelivery.wristHinge);
         robot.wristRotate.setToCenterPosition();
-        robot.arm.setPosition(constants.highBasketSampleOuttake.arm);
+        robot.arm.setPosition(constants.highBasketSampleDelivery.arm);
 
 
         robot.claw.close();
